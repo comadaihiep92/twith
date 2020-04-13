@@ -1,0 +1,621 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://static.twitchcdn.net/assets/core-35b14673feccd71af961.css"
+    />
+    <style>
+      #iddd {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 99;
+        background: white;
+        padding: 20px;
+      }
+      #iddd button {
+        padding-left: 20px;
+      }
+      #header {
+        background-color: gray;
+        position: relative;
+        z-index: 99;
+      }
+      #two {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: -99;
+      }
+      #twitch-embed {
+        order: 2;
+        position: relative;
+      }
+      #if {
+        overflow: hidden;
+        width: 300px;
+        height: 2000px;
+        position: relative;
+        top: -750px;
+      }
+      #iframe {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* z-index: -1; */
+        left: -50px;
+      }
+      #text {
+        color: white;
+        position: absolute;
+        z-index: 100;
+        top: 71%;
+        background: black;
+        left: 47%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Add a placeholder for the Twitch embed -->
+
+    <div id="iddd" class="id">
+      <label for="id">Search: </label>
+      <input type="text" name="id" id="idChannel" />
+      <button id="myBtn" onclick="getId()">Search</button>
+      <button onclick="window.location.reload();">Refresh Page</button>
+    </div>
+
+    <div id="hehe">
+      <div id="header"></div>
+      <div id="two">
+        <div id="twitch-embed"></div>
+        <div id="if"></div>
+      </div>
+    </div>
+    <div id="text"></div>
+
+    <!-- Load the Twitch embed script -->
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+    <script type="text/javascript">
+      // idTwitch = 'xqcow';
+      function getId(event) {
+        let idTwitch = document.getElementById("idChannel").value;
+        // console.log(idTwitch);
+
+        let head = `<div class="" id="idne">
+        <div
+          class="channel-header tw-align-items-stretch tw-flex tw-flex-column tw-full-height tw-full-width tw-justify-content-between tw-pd-y-05"
+        >
+          <div class="tw-full-width tw-hide-accessible">
+            <div
+              class="channel-banner"
+              data-test-selector="channel-banner__header-type"
+            >
+              <div
+                class="channel-banner__image tw-full-height tw-full-width"
+                data-test-selector="channel-banner__image-loaded"
+                style="
+                  background-image: url('https://static-cdn.jtvnw.net/jtv_user_pictures/b94955f2-b9f6-4200-8179-3bdf5e032bdf-profile_banner-480.jpeg');
+                "
+              ></div>
+            </div>
+          </div>
+          <div
+            class="tw-flex tw-flex-nowrap tw-full-height tw-full-width tw-justify-content-center"
+          >
+            <div
+              class="tw-full-height tw-full-width tw-pd-l-05 tw-pd-r-05 tw-sm-pd-l-1 tw-sm-pd-r-4"
+              style="position: relative;"
+            >
+              <div
+                class="tw-align-items-center tw-flex tw-full-height tw-full-width tw-justify-content-between"
+              >
+                <div
+                  data-target="channel-header-left"
+                  class="channel-header__left tw-align-items-center tw-flex tw-flex-nowrap tw-full-height"
+                >
+                  <div
+                    class="channel-header__banner-toggle channel-header__user channel-header__user--selected tw-flex"
+                    data-a-target="user-channel-header-item"
+                  >
+                    <div
+                      class="channel-header-user-tab__user-content tw-align-items-center tw-flex tw-full-height"
+                    >
+                      <div
+                        class="channel-header__user-avatar channel-header__user-avatar--active tw-align-items-stretch tw-flex tw-mg-r-05 tw-sm-mg-r-1"
+                      >
+                        <div
+                          class="channel-header__avatar-dropdown tw-relative"
+                        >
+                          <figure
+                            aria-label="${idTwitch}"
+                            class="tw-avatar tw-avatar--size-36"
+                          >
+                            <img
+                              class="tw-block tw-border-radius-rounded tw-image tw-image-avatar"
+                              alt="${idTwitch}"
+                              src="https://static-cdn.jtvnw.net/jtv_user_pictures/1975b18f-fa7d-443f-b191-fba08f92f3a2-profile_image-70x70.jpeg"
+                            />
+                          </figure>
+                        </div>
+                      </div>
+                      <p
+                        class="tw-c-text-inherit tw-font-size-5 tw-white-space-nowrap"
+                      >
+                      ${idTwitch}
+                      </p>
+                      <div
+                        aria-describedby="141514c14d8078e8f807d61522394aa6"
+                        class="tw-inline-flex tw-relative tw-tooltip-wrapper"
+                      >
+                        <div
+                          class="channel-header-verified-badge tw-align-items-center tw-flex tw-mg-l-05 tw-sm-mg-l-1"
+                        >
+                          <figure class="tw-svg">
+                            <svg
+                              class="tw-svg__asset tw-svg__asset--inherit tw-svg__asset--verified"
+                              width="20px"
+                              height="20px"
+                              version="1.1"
+                              viewBox="0 0 20 20"
+                              x="0px"
+                              y="0px"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M10 2l6 2 2 6-2 6-6 2-6-2-2-6 2-6 6-2zM8.889 13.636l5.43-5.429-1.415-1.414-4.015 4.015-2.015-2.015-1.414 1.414 3.429 3.43z"
+                              ></path>
+                            </svg>
+                          </figure>
+                        </div>
+                        <div
+                          class="tw-tooltip tw-tooltip--align-center tw-tooltip--right"
+                          data-a-target="tw-tooltip-label"
+                          role="tooltip"
+                          id="141514c14d8078e8f807d61522394aa6"
+                        >
+                          Người dùng đã xác minh
+                        </div>
+                      </div>
+                      <div
+                        class="live-indicator tw-mg-l-05 tw-sm-mg-l-1 tw-visible"
+                      >
+                        <div
+                          aria-describedby="5c076e9ef593e96f65a2b08441e69540"
+                          class="tw-inline-flex tw-relative tw-tooltip-wrapper"
+                        >
+                          <div
+                            class="tw-align-center tw-border-radius-medium tw-c-text-overlay tw-channel-status-text-indicator tw-font-size-6 tw-inline-block tw-pd-x-05"
+                          >
+                            <p
+                              class="tw-strong tw-upcase tw-white-space-nowrap"
+                            >
+                              Trực tiếp
+                            </p>
+                          </div>
+                          <div
+                            class="tw-tooltip tw-tooltip--align-center tw-tooltip--right"
+                            data-a-target="tw-tooltip-label"
+                            role="tooltip"
+                            id="5c076e9ef593e96f65a2b08441e69540"
+                          >
+                            Đang phát trực tiếp
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tw-align-items-center tw-flex tw-flex-grow-4 tw-flex-nowrap tw-full-height tw-justify-content-center tw-pd-x-1"
+                >
+                  <div class="tw-flex tw-full-width tw-relative tw-tabs">
+                    <ul
+                      role="tablist"
+                      data-test-selector="channel-header-tabs"
+                      class="tw-align-items-center tw-flex tw-flex-grow-1 tw-flex-wrap tw-font-size-4 tw-full-height tw-justify-content-center"
+                    >
+                      <li
+                        class="tw-align-items-center tw-c-text-link tw-flex-grow-0 tw-full-height tw-justify-content-center tw-tabs__tab"
+                        role="presentation"
+                        data-index="0"
+                      >
+                        <a
+                          class="tw-block tw-c-text-inherit tw-full-height tw-full-width tw-interactive tw-pd-x-1 tw-tab-item"
+                          role="tab"
+                          data-a-target="trang chủ-channel-header-item"
+                          href="https://www.twitch.tv/${idTwitch}/"
+                          ><div
+                            class="tw-align-center tw-flex tw-flex-column tw-full-height"
+                          >
+                            <div class="tw-flex-grow-0">
+                              <div class="tw-font-size-5 tw-regular">
+                                Trang chủ
+                              </div>
+                            </div>
+                            <div class="tw-flex-grow-1"></div>
+                            <div class="tw-flex-grow-0">
+                              <div
+                                class="tw-tabs__active-indicator"
+                                data-test-selector="ACTIVE_TAB_INDICATOR"
+                              ></div>
+                            </div></div
+                        ></a>
+                      </li>
+                      <li
+                        class="tw-align-items-center tw-c-text-base tw-flex-grow-0 tw-full-height tw-justify-content-center tw-tabs__tab"
+                        role="presentation"
+                        data-index="1"
+                      >
+                        <a
+                          class="tw-block tw-c-text-inherit tw-full-height tw-full-width tw-interactive tw-pd-x-1 tw-tab-item"
+                          role="tab"
+                          data-a-target="video-channel-header-item"
+                          href="https://www.twitch.tv/${idTwitch}/videos/"
+                          ><div
+                            class="tw-align-center tw-flex tw-flex-column tw-full-height"
+                          >
+                            <div class="tw-flex-grow-0">
+                              <div class="tw-font-size-5 tw-regular">Video</div>
+                            </div>
+                            <div class="tw-flex-grow-1"></div>
+                            <div class="tw-flex-grow-0"></div></div
+                        ></a>
+                      </li>
+                      <li
+                        class="tw-align-items-center tw-c-text-base tw-flex-grow-0 tw-full-height tw-justify-content-center tw-tabs__tab"
+                        role="presentation"
+                        data-index="2"
+                      >
+                        <a
+                          class="tw-block tw-c-text-inherit tw-full-height tw-full-width tw-interactive tw-pd-x-1 tw-tab-item"
+                          role="tab"
+                          data-a-target="clip-channel-header-item"
+                          href="https://www.twitch.tv/${idTwitch}/clips?filter=clips&range=7d/"
+                          ><div
+                            class="tw-align-center tw-flex tw-flex-column tw-full-height"
+                          >
+                            <div class="tw-flex-grow-0">
+                              <div class="tw-font-size-5 tw-regular">Clip</div>
+                            </div>
+                            <div class="tw-flex-grow-1"></div>
+                            <div class="tw-flex-grow-0"></div></div
+                        ></a>
+                      </li>
+                      <li
+                        class="tw-align-items-center tw-c-text-base tw-flex-grow-0 tw-full-height tw-justify-content-center tw-tabs__tab"
+                        role="presentation"
+                        data-index="3"
+                      >
+                        <a
+                          class="tw-block tw-c-text-inherit tw-full-height tw-full-width tw-interactive tw-pd-x-1 tw-tab-item"
+                          role="tab"
+                          data-a-target="người theo dõi-channel-header-item"
+                          href="https://www.twitch.tv/${idTwitch}/followers"
+                          ><div
+                            class="tw-align-center tw-flex tw-flex-column tw-full-height"
+                          >
+                            <div class="tw-flex-grow-0">
+                              <div class="tw-font-size-5 tw-regular">
+                                Người theo dõi
+                              </div>
+                            </div>
+                            <div class="tw-flex-grow-1"></div>
+                            <div class="tw-flex-grow-0"></div></div
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  data-target="channel-header-right"
+                  class="channel-header__right tw-align-items-center tw-flex tw-flex-nowrap tw-justify-content-end"
+                >
+                  <div class="tw-flex tw-mg-r-1">
+                    <div
+                      class="follow-btn__follow-notify-container follow-btn__follow-notify-container__align-right"
+                    >
+                      <div
+                        class="tw-align-items-center tw-flex tw-full-height tw-overflow-hidden"
+                      >
+                        <div
+                          class="tw-border-radius-medium tw-flex tw-flex-column tw-justify-content-center tw-overflow-hidden"
+                        >
+                          <div
+                            class="tw-flex tw-flex-column tw-justify-content-center"
+                          >
+                            <div
+                              class="follow-btn__follow-btn-container prevent-transition"
+                            >
+                              <div
+                                class="follow-btn__follow-btn prevent-transition"
+                              >
+                                <div
+                                  class="tw-border-radius-medium tw-c-background-accent-alt-2 tw-inline-flex tw-overflow-hidden"
+                                >
+                                  <button
+                                    class="tw-align-items-center tw-align-middle tw-border-bottom-left-radius-medium tw-border-bottom-right-radius-medium tw-border-top-left-radius-medium tw-border-top-right-radius-medium tw-core-button tw-core-button--primary tw-full-width tw-inline-flex tw-interactive tw-justify-content-center tw-overflow-hidden tw-relative"
+                                    data-a-target="follow-button"
+                                    data-test-selector="follow-button"
+                                  >
+                                    <div
+                                      class="tw-align-items-center tw-core-button-label tw-flex tw-flex-grow-0"
+                                    >
+                                      <div
+                                        data-a-target="tw-core-button-label-text"
+                                        class="tw-flex-grow-0"
+                                      >
+                                        <div
+                                          class="tw-align-items-center tw-flex tw-justify-content-center"
+                                        >
+                                          <div
+                                            class="tw-align-items-center tw-flex tw-justify-content-center tw-mg-r-05"
+                                            style="
+                                              transform: translateX(0px)
+                                                scale(1);
+                                            "
+                                          >
+                                            <div
+                                              data-a-target="tw-animation-target"
+                                              class="tw-animation tw-animation--bounce-in tw-animation--duration-long tw-animation--fill-mode-both tw-animation--timing-ease"
+                                            >
+                                              <div
+                                                class="tw-align-items-center tw-flex tw-justify-content-center"
+                                              >
+                                                <figure class="tw-svg">
+                                                  <svg
+                                                    class="tw-svg__asset tw-svg__asset--followhollow tw-svg__asset--inherit"
+                                                    width="20px"
+                                                    height="20px"
+                                                    version="1.1"
+                                                    viewBox="0 0 20 20"
+                                                    x="0px"
+                                                    y="0px"
+                                                  >
+                                                    <g>
+                                                      <path
+                                                        fill-rule="evenodd"
+                                                        d="M9.171 4.171A4 4 0 006.343 3H6a4 4 0 00-4 4v.343a4 4 0 001.172 2.829L10 17l6.828-6.828A4 4 0 0018 7.343V7a4 4 0 00-4-4h-.343a4 4 0 00-2.829 1.172L10 5l-.829-.829zm.829 10l5.414-5.414A2 2 0 0016 7.343V7a2 2 0 00-2-2h-.343a2 2 0 00-1.414.586L10 7.828 7.757 5.586A2 2 0 006.343 5H6a2 2 0 00-2 2v.343a2 2 0 00.586 1.414L10 14.172z"
+                                                        clip-rule="evenodd"
+                                                      ></path>
+                                                    </g>
+                                                  </svg>
+                                                </figure>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <span
+                                            style="
+                                              opacity: 1;
+                                              transform: translateX(0px);
+                                              transition: all 300ms ease 300ms;
+                                            "
+                                            >Theo dõi</span
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          data-test-selector="live-notifications-toggle"
+                          class="follow-btn__notification-toggle-container tw-mg-l-1"
+                        >
+                          <div>
+                            <div
+                              data-a-target="live-notifications-wrapper--off"
+                              class="live-notifications__btn"
+                            >
+                              <div
+                                class="tw-border-radius-medium tw-c-background-base tw-inline-flex tw-overflow-hidden"
+                              >
+                                <button
+                                  disabled=""
+                                  class="tw-align-items-center tw-align-middle tw-border-bottom-left-radius-medium tw-border-bottom-right-radius-medium tw-border-top-left-radius-medium tw-border-top-right-radius-medium tw-core-button tw-core-button--secondary tw-full-width tw-inline-flex tw-interactive tw-justify-content-center tw-overflow-hidden tw-relative"
+                                  tabindex="-1"
+                                  data-a-target="notifications-toggle"
+                                >
+                                  <div
+                                    class="tw-align-items-center tw-core-button-label tw-flex tw-flex-grow-0"
+                                  >
+                                    <div
+                                      data-a-target="tw-core-button-label-text"
+                                      class="tw-flex-grow-0"
+                                    >
+                                      <div
+                                        class="tw-align-items-center tw-flex tw-justify-content-center"
+                                      >
+                                        <div
+                                          class="tw-align-items-center tw-flex tw-justify-content-center tw-mg-r-0"
+                                          style="
+                                            transform: translateX(0px) scale(1);
+                                            transition: transform 300ms ease 0s;
+                                          "
+                                        >
+                                          <div
+                                            data-a-target="tw-animation-target"
+                                            class="tw-animation tw-animation--bounce-in tw-animation--duration-long tw-animation--fill-mode-both tw-animation--timing-ease"
+                                          >
+                                            <div
+                                              class="tw-align-items-center tw-flex tw-justify-content-center"
+                                            >
+                                              <figure class="tw-svg">
+                                                <svg
+                                                  class="tw-svg__asset tw-svg__asset--inherit tw-svg__asset--notificationbell"
+                                                  width="20px"
+                                                  height="20px"
+                                                  version="1.1"
+                                                  viewBox="0 0 20 20"
+                                                  x="0px"
+                                                  y="0px"
+                                                >
+                                                  <g>
+                                                    <path
+                                                      fill-rule="evenodd"
+                                                      d="M17 14v-2c-1-.5-1.75-1-2-2-.095-.38-.154-.905-.221-1.506C14.49 5.936 14.049 2 10 2 5.95 2 5.509 5.936 5.221 8.494 5.154 9.095 5.095 9.62 5 10c-.25 1-1 1.5-2 2v2h14zm-9.002 2h4-4zm4 0v.012V16zm-5.766-4h7.536a4.262 4.262 0 01-.708-1.515c-.129-.513-.2-1.154-.26-1.684a32.48 32.48 0 00-.009-.083c-.152-1.355-.314-2.606-.78-3.535-.21-.423-.447-.692-.703-.862C11.063 4.158 10.673 4 10 4s-1.063.158-1.308.32c-.256.171-.492.44-.704.863-.465.929-.627 2.18-.78 3.535L7.2 8.8c-.06.53-.131 1.171-.26 1.684-.15.603-.402 1.1-.708 1.515zm1.766 4a2.001 2.001 0 004 .012"
+                                                      clip-rule="evenodd"
+                                                    ></path>
+                                                  </g>
+                                                </svg>
+                                              </figure>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <span
+                                          style="
+                                            opacity: 1;
+                                            transform: translateX(0px);
+                                            transition: all 300ms ease 300ms;
+                                          "
+                                        ></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="">
+                    <div class="tw-relative">
+                      <button
+                        class="tw-align-items-center tw-align-middle tw-border-bottom-left-radius-medium tw-border-bottom-right-radius-medium tw-border-top-left-radius-medium tw-border-top-right-radius-medium tw-core-button tw-core-button--secondary tw-full-width tw-inline-flex tw-interactive tw-justify-content-center tw-overflow-hidden tw-relative"
+                        data-a-target="subscribe-button"
+                        data-test-selector="subscribe-button__dropdown"
+                        aria-label="Đăng ký theo dõi"
+                      >
+                        <div
+                          class="tw-align-items-center tw-core-button-label tw-core-button-label--dropdown tw-core-button-label--icon tw-flex tw-flex-grow-1"
+                        >
+                          <div class="tw-align-items-center tw-flex tw-mg-r-05">
+                            <div
+                              class="tw-align-items-center tw-core-button-icon tw-inline-flex"
+                            >
+                              <div
+                                data-a-selector="tw-core-button-icon"
+                                class="tw-align-items-center tw-full-width tw-icon tw-icon--fill tw-inline-flex"
+                              >
+                                <div class="tw-aspect tw-aspect--align-top">
+                                  <div
+                                    class="tw-aspect__spacer"
+                                    style="padding-bottom: 100%;"
+                                  ></div>
+                                  <svg
+                                    class="tw-icon__svg"
+                                    width="100%"
+                                    height="100%"
+                                    version="1.1"
+                                    viewBox="0 0 20 20"
+                                    x="0px"
+                                    y="0px"
+                                  >
+                                    <g>
+                                      <path
+                                        fill-rule="evenodd"
+                                        d="M11.456 8.255L10 5.125l-1.456 3.13-3.49.485 2.552 2.516-.616 3.485L10 13.064l3.01 1.677-.616-3.485 2.553-2.516-3.491-.485zM7.19 6.424l-4.2.583c-.932.13-1.318 1.209-.664 1.853l3.128 3.083-.755 4.272c-.163.92.876 1.603 1.722 1.132L10 15.354l3.579 1.993c.846.47 1.885-.212 1.722-1.132l-.755-4.272 3.128-3.083c.654-.644.268-1.723-.664-1.853l-4.2-.583-1.754-3.77c-.406-.872-1.706-.872-2.112 0L7.19 6.424z"
+                                        clip-rule="evenodd"
+                                      ></path>
+                                    </g>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            data-a-target="tw-core-button-label-text"
+                            class="tw-flex-grow-1"
+                          >
+                            Đăng ký theo dõi
+                          </div>
+                          <div class="tw-align-items-center tw-flex tw-mg-l-05">
+                            <div
+                              class="tw-align-items-center tw-core-button-icon tw-inline-flex"
+                            >
+                              <div
+                                data-a-selector="tw-core-button-icon"
+                                class="tw-align-items-center tw-full-width tw-icon tw-icon--fill tw-inline-flex"
+                              >
+                                <div class="tw-aspect tw-aspect--align-top">
+                                  <div
+                                    class="tw-aspect__spacer"
+                                    style="padding-bottom: 100%;"
+                                  ></div>
+                                  <svg
+                                    class="tw-icon__svg"
+                                    width="100%"
+                                    height="100%"
+                                    version="1.1"
+                                    viewBox="0 0 20 20"
+                                    x="0px"
+                                    y="0px"
+                                  >
+                                    <g>
+                                      <path
+                                        d="M14.5 6.5L10 11 5.5 6.5 4 8l6 6 6-6-1.5-1.5z"
+                                      ></path>
+                                    </g>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="resize-detector">
+                <div class="resize-detector">
+                  <div
+                    class="resize-detector__grow"
+                    style="width: 100000px; height: 100000px;"
+                  ></div>
+                </div>
+                <div class="resize-detector">
+                  <div class="resize-detector__shrink"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+        let header = (document.getElementById("header").innerHTML = head);
+
+        let hehe = document.getElementById("twitch-embed");
+        hehe.appendChild = new Twitch.Embed("twitch-embed", {
+          width: 854,
+          height: 480,
+          layout: "video",
+          channel: idTwitch,
+          // only needed if your site is also embedded on embed.example.com and othersite.example.com
+          parent: ["embed.example.com", "othersite.example.com"],
+        });
+
+        let contentIf = `<iframe id="iframe"
+          src="https://sullygnome.com/channel/${idTwitch}/30/games"
+          frameborder="0" scrolling="no"
+        ></iframe>`;
+
+        let iframe = (document.getElementById("if").innerHTML = contentIf);
+
+        let text = document.getElementById("text");
+
+        text.innerHTML = `<h2>www.twitch.tv/${idTwitch}</h2>`;
+      }
+    </script>
+  </body>
+</html>
